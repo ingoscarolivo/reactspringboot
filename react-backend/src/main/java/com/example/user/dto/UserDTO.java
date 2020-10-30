@@ -82,4 +82,17 @@ public class UserDTO implements Serializable {
         return list.stream().map(UserDTO::new).collect(Collectors.toList());
     }
 
+    public static UserDTO mapToDTO(User user){
+        return new UserDTO(user);
+    }
+    public static  User mapToEntity(UserDTO userDTO){
+        User user = new User();
+        if(userDTO != null) {
+            user.setId(userDTO.getId());
+            user.setFirstName(userDTO.getFirstName());
+            user.setLastName(userDTO.getLastName());
+            user.setEmail(userDTO.getEmail());
+        }
+        return  user;
+    }
 }
