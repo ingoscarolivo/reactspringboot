@@ -39,7 +39,7 @@ class UserControllerTestGetUsers {
         listExpected.add(personB);
 
         when(service.getUsers()).thenReturn(listExpected);
-        listReturn  = controller.getUsers();
+        listReturn  = controller.findAll();
 
         assertNotNull(listReturn);
         assertEquals(listReturn.size(),sizeExpected);

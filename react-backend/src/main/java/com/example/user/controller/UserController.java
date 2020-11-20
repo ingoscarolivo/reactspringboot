@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<UserDTO> getUsers() {
+    public List<UserDTO> findAll() {
         return service.getUsers();
     }
 
@@ -31,17 +31,17 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserDTO getUser(@PathVariable Long id) {
+    public UserDTO findById(@PathVariable Long id) {
         return service.singleUser(id);
     }
 
     @PutMapping("/{id}")
-    UserDTO putUser(@RequestBody User updateUser , @PathVariable Long id){
+    public UserDTO update(@RequestBody User updateUser, @PathVariable Long id){
         return service.updateUser(updateUser,id);
     }
 
     @DeleteMapping("/{id}")
-    void deleteUser(@PathVariable Long id) {
+    void delete(@PathVariable Long id) {
         service.deleteUser(id);
     }
 
